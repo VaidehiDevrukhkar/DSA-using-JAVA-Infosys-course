@@ -1,0 +1,46 @@
+class Queue {
+	 public LinkedList<String> queue;
+    public int maxSize;
+
+    public Queue(int maxSize) {
+        this.queue = new LinkedList<>();
+        this.maxSize = maxSize;
+    }
+
+    public void enqueue(String element) {
+        if (queue.size() < maxSize) {
+            queue.addLast(element);
+        } else {
+            System.out.println("Queue is full. Cannot enqueue element: " + element);
+        }
+    }
+
+    public String dequeue() {
+        if (!queue.isEmpty()) {
+            return queue.removeFirst();
+        } else {
+            System.out.println("Queue is empty. Cannot dequeue.");
+            return null;
+        }
+    }
+
+    public List<String> getQueue() {
+        return queue;
+}
+
+class Tester {
+
+	public static void main(String arga[]){
+		Queue queue= new Queue(5);
+		
+		queue.enqueue("Emily");
+		queue.enqueue("Lily");
+		queue.enqueue("Rachel");
+		queue.enqueue("Rose");
+		
+		queue.dequeue();
+		queue.dequeue();
+	
+		System.out.println(queue.getQueue());
+	}
+}
